@@ -3,17 +3,24 @@
 void initialScreen();
 double fahrenheitToCelsius(double fahrenheit);
 void showResults(double fahrenheit, double celsius);
+void getInput(double& fVariable);
+void getNumbers(int& input1, int& input2);
+void swapValues(int& value1, int& value2);
+void showResults(int output1, int output2);
 
 int main()
 {
     using namespace std;
-    double fTemperature = 0, cTemperature = 0;
-
-    initialScreen();
-    cout << "I will convert a Fahrenheit tempreature to Celsius." << endl;
-    cin >> fTemperature;
-    cTemperature = fahrenheitToCelsius(fTemperature);
-    showResults(fTemperature, cTemperature);
+    int firstNum = 0, secondNum = 0;
+    getNumbers(firstNum, secondNum);
+    swapValues(firstNum, secondNum);
+    showResults(firstNum, secondNum);
+//    double fTemperature = 0, cTemperature = 0;
+//
+//    initialScreen();
+//    getInput(fTemperature);
+//    cTemperature = fahrenheitToCelsius(fTemperature);
+//    showResults(fTemperature, cTemperature);
 
     return 0;
 }
@@ -36,4 +43,32 @@ void showResults(double fahrenheit, double celsius)
     cout.setf(ios::showpoint);
     cout.precision(1);
     cout << fahrenheit << " degrees Fahrehneit is equivalent to " << celsius << " degrees Celsius." << endl;
+}
+
+void getInput(double& fVariable)
+{
+    using namespace std;
+    cout << "I will convert a Fahrenheit tempreature to Celsius. Enter a temperature in Fahrenheit:"<< endl;
+    cin >> fVariable;
+}
+
+void getNumbers(int& input1, int& input2)
+{
+    using namespace std;
+    cout << "Enter two integers: ";
+    cin >> input1 >> input2;
+}
+
+void swapValues(int& value1, int& value2)
+{
+    int temp;
+    temp = value1;
+    value1 = value2;
+    value2 = temp;
+}
+
+void showResults(int output1, int output2)
+{
+    using namespace std;
+    cout << "The numbers swapped: " << output1 << " " << output2;
 }
